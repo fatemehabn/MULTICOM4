@@ -84,11 +84,11 @@ wget -q -P $MULTICOM4_INSTALL_DIR/tools/alphafold-v2.3.2/alphafold/common/ https
 ``` bash
 # Replace $MULTICOM4_INSTALL_DIR with your MULTICOM4 installation directory
 
-cd ~/anaconda3/envs/multicom4/lib/python3.8/site-packages/ && patch -p0 < $MULTICOM4_INSTALL_DIR/tools/alphafold-v2.3.2/docker/openmm.patch
+cd $ANACONDA_DIR/envs/multicom4/lib/python3.8/site-packages/ && patch -p0 < $MULTICOM4_INSTALL_DIR/tools/alphafold-v2.3.2/docker/openmm.patch
 
 # or
 
-cd ~/miniconda3/envs/multicom4/lib/python3.8/site-packages/ && patch -p0 < $MULTICOM4_INSTALL_DIR/tools/alphafold-v2.3.2/docker/openmm.patch
+cd $MINICONDA_DIR/envs/multicom4/lib/python3.8/site-packages/ && patch -p0 < $MULTICOM4_INSTALL_DIR/tools/alphafold-v2.3.2/docker/openmm.patch
 ```
 
 ### **Install other required third-party packages**
@@ -102,6 +102,13 @@ conda install scikit-learn
 conda install -c conda-forge gsl=2.5
 
 pip install charset_normalizer==3.3.1
+```
+
+# **Download Tools**
+
+``` bash
+cd MULTICOM4/
+python download_tools.py
 ```
 
 ### **Install third-party packages envorinments**
@@ -145,7 +152,7 @@ python download_database_and_tools.py --multicom4db_dir <YOUR_MULTICOM4_DB_DIR>
 # Replace $MULTICOM4_INSTALL_DIR with your MULTICOM4 installation directory
 # Replace $YOUR_ALPHAFOLD_DB_DIR with your downloaded AlphaFold databases directory
 
-python configure.py --envdir ~/miniconda3/envs/multicom4 --multicom4db_dir <YOUR_MULTICOM4_DB_DIR> --afdb_dir <YOUR_ALPHAFOLD_DB_DIR>
+python configure.py --envdir $MINICONDA_DIR/envs/multicom4 --multicom4db_dir <YOUR_MULTICOM4_DB_DIR> --afdb_dir <YOUR_ALPHAFOLD_DB_DIR>
 
 # e.g, 
 # python download_database_and_tools.py \
